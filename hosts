@@ -1,5 +1,5 @@
 [juniper]
-ansible_host=10.100.0.8
+ex4300 ansible_host=10.100.0.8
 
 [juniper:vars]
 ansible_network_os=junos
