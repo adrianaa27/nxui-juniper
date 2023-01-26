@@ -6,7 +6,8 @@
   tasks:
     - name: Retrieve get_facts, get_interfaces
       napalm_get_facts:
-        filter: facts,interfaces
+        filter: facts,interfaces,lldp_neighbors_detail
+
 
     - debug:
         var: napalm_facts
