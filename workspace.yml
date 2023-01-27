@@ -6,10 +6,10 @@
   tasks:
     - name: Retrieve get_facts
       napalm_get_facts:
-        filter: lldp_neighbors_detail
+        filter: facts,lldp_neighbors_detail
     - debug:
         var: napalm_facts
 
-    - name: Print all available facts
-      ansible.builtin.debug:
-          var: ansible_facts
+    #- name: Print all available facts
+     # ansible.builtin.debug:
+      #    var: ansible_facts
