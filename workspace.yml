@@ -4,9 +4,9 @@
   hosts: juniper
   gather_facts: False
   tasks:
-    - name: Retrieve get_facts, get_interfaces
+    - name: Retrieve get_facts
       napalm_get_facts:
-        filter: facts,lldp_neighbors_detail
+        filter: lldp_neighbors_detail
     - debug:
         var: napalm_facts
 
