@@ -7,15 +7,14 @@
    - name: Retrieve get_facts
       napalm_get_facts:
         filter: facts,lldp_neighbors_detail
-    - debug:
+   - debug:
         var: napalm_facts
-
-    - name: print ansible_facts
-    - ansible.builtin.debug:
+   - name: print ansible_facts
+   - ansible.builtin.debug:
         var: ansible_facts
 
-    - name: Copy ansible facts to a file.
-      copy:
+   - name: Copy ansible facts to a file.
+   - copy:
         content: ansible_facts 
         dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.txt
 
