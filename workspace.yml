@@ -4,19 +4,16 @@
   gather_facts: False
   tasks:
     - name: Retrieve get_facts, get_interfaces
-      napalm_get_facts:
-        filter: facts,interfaces
-
+        napalm_get_facts:
+            filter: facts,interfaces
     - debug:
         var: napalm_facts
-    - name: print ansible_facts
-    - debug:
-        var: ansible_facts["kernal"]
-    - name: Copy ansible facts to a file.
-      copy:
-        content: "{{ ansible_facts }}"
-        dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.txt   
 
-    ##- name: Print all available facts
-     ##ansible.builtin.debug:
-      ##  var: ansible_facts
+    - name: Print all available facts
+      ansible.builtin.debug:
+        var: ansible_facts
+    - local_action: 
+        module: copy 
+        content: "{{ ansible_facts }}"
+        dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.txt
+        
