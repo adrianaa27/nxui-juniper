@@ -1,5 +1,4 @@
 ---
----
 - name: napalm 
   hosts: juniper
   gather_facts: False
