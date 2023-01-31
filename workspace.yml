@@ -10,9 +10,10 @@
     - debug:
         var: napalm_facts
 
-    - name: Print all available facts
-      ansible.builtin.debug:
-          #var: ansible_facts
-          msg: "{{ ansible_ssh_host }}"
-
-
+    - name: print ansible_facts
+    - debug:
+        var: ansible_facts["kernal"]
+    - name: Copy ansible facts to a file.
+      copy:
+      content: "{{ ansible_facts }}"
+      dest: /getfacts.txt
