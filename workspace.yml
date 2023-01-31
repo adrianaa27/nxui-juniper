@@ -4,15 +4,16 @@
   hosts: juniper
   gather_facts: False
   tasks:
-    - name: Retrieve get_facts
-      napalm_get_facts:
-        filter: facts,lldp_neighbors_detail
-    - debug:
-        var: napalm_facts
+   #- name: Retrieve get_facts
+    #  napalm_get_facts:
+     #   filter: facts,lldp_neighbors_detail
+    #- debug:
+     #   var: napalm_facts
     - name: print ansible_facts
     - debug:
         var: ansible_facts
+
     - name: Copy ansible facts to a file.
       copy:
-      content: "{{ ansible_facts }}"
-      dest: getfacts.txt
+        content: "{{ ansible_facts }}"
+        dest: getfacts.txt
