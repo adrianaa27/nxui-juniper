@@ -9,7 +9,6 @@
         filter: facts,lldp_neighbors_detail
     - debug:
         var: napalm_facts
-
     - name: print ansible_facts
     - debug:
         var: ansible_facts["kernal"]
