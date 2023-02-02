@@ -9,14 +9,14 @@
         filter: facts,lldp_neighbors_detail
     - debug:
         var: napalm_facts
-        
+
     - name: Print all available facts
       ansible.builtin.debug:
         var: ansible_facts
     - local_action: 
         module: copy 
         content: "{{ ansible_facts }}"
-        dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.txt
+        dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
    
     - debug:
         msg: "{{ ansible_host }}"
