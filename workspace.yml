@@ -23,6 +23,6 @@
         content: "{{ ansible_facts }}"
         dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.txt
 
-    - name: Show host's ip
+    - name: Show host ip
     - debug:
         msg: "{{ ansible_ssh_host }}"
