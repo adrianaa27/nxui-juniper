@@ -24,4 +24,4 @@
     
     - name: show host ip
     - debug:
-        msg: "{{ ansible_host }}"
+        msg: ansible_host
