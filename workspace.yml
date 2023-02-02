@@ -17,9 +17,12 @@
     - name: Print all available facts
       ansible.builtin.debug:
         var: ansible_facts
-        msg: "{{ ansible_host }}"
     - local_action: 
         module: copy 
         content: "{{ ansible_facts }}"
         dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.txt
    
+    - name: show ip
+    - debug:
+        msg: "{{ ansible_host }}"
+
