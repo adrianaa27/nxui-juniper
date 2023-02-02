@@ -11,7 +11,7 @@
         var: napalm_facts
     - local_action: 
         module: copy 
-        content: "{{ ansible_facts }}"
+        content: "{{ napalm_facts }}"
         dest: /home/nstadmin/nxui-ansible/nxui-juniper/test.txt
 
 
