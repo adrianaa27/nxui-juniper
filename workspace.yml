@@ -3,17 +3,16 @@
   hosts: juniper
   gather_facts: False
   tasks:
-    - name: Retrieve get_facts, get_lldp
-       napalm_get_facts:
-             filter: facts,lldp_neighbors_detail
 
+    - name: Retrieve get_facts, get_lldp
+      napalm_get_facts:
+        filter: facts,lldp_neighbors_detail
     - debug:
         var: napalm_facts
     - local_action: 
         module: copy 
         content: "{{ napalm_facts }}"
         dest: /home/nstadmin/nxui-ansible/nxui-juniper/test.txt
-
 
     - name: Print all available facts
       ansible.builtin.debug:
