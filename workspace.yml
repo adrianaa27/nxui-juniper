@@ -21,7 +21,7 @@
         module: copy 
         content: "{{ ansible_facts }}"
         dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.txt
-
-    - name: Show host ip
+    
+    - name: show host ip
     - debug:
         msg: "{{ ansible_host }}"
