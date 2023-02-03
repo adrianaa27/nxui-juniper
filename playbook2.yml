@@ -12,10 +12,10 @@
     - name: Print all available facts
       ansible.builtin.debug:
         var: ansible_facts
-    - local_action: 
-        module: copy 
-        content: "{{ ansible_facts.napalm_lldp_neighbors_detail}},"
-        dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
+    #- local_action: 
+        #module: copy 
+        #content: "{{ ansible_facts.napalm_lldp_neighbors_detail}},"
+        #dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
     - local_action: 
         module: copy 
         content: "{{ ansible_host }},"
