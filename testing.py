@@ -8,7 +8,7 @@ from jinja2 import Environment, FileSystemLoader
 with open('getfacts.csv','r+') as getfacts_data:
     reader = csv.reader(getfacts_data)
     for row in reader:
-        print(row + "\n")
+        rprint(row)
         #getfacts_data.write({"napalm_fqdn"[0]})
 
 
