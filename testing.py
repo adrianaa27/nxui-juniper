@@ -10,5 +10,3 @@ with open('getfacts.csv','w') as getfacts_data:
     for row in reader:
         #print(row)
         getfacts_data.write({napalm_fqdn[0]})
-
-
