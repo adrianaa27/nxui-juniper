@@ -4,6 +4,6 @@
   gather_facts: False
   tasks:
     - name: fqdn
-      var: napalm_facts
       debug:
-        msg: "{{napalm_facts}}"
+       var: napalm_facts
+       msg: "{{fqdn}}""
