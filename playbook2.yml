@@ -2,10 +2,8 @@
 - name: napalm 
   hosts: juniper
   gather_facts: False
+  
   tasks:
-    - name: fqdn
-      ansible.builtin.debug:
-        var: ansible_facts 
-    
-    - debug:
+    - name: "fqdn"
+      debug:
         msg: "{{ansible_facts}}"
