@@ -5,4 +5,4 @@
   tasks:
     - name: fqdn
       debug:
-        msg: "{{ansible_facts.napalm_facts.fqdn}}"
+        msg: "{{ansible_facts}}"
