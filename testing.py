@@ -8,4 +8,4 @@ from jinja2 import Environment, FileSystemLoader
 with open('getfacts.csv','w') as getfacts_data:
    
     for facts in getfacts_data:
-        getfacts_data.write({napalm_fqdn[0]})
+        getfacts_data.write(ansible_facts{napalm_facts{napalm_fqdn[0]})
