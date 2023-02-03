@@ -9,6 +9,6 @@ with open('getfacts.csv','r+') as getfacts_data:
     reader = csv.reader(getfacts_data)
     for row in reader:
         #rprint(row)
-        getfacts_data.write({"napalm_fqdn"[0]})
+        getfacts_data.write(napalm_facts{"fqdn"[0]})
 
 
