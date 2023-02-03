@@ -6,4 +6,4 @@
   tasks:
     - name: "fqdn"
       debug:
-        msg: "{{juniper[ansible_facts]}}"
+        msg: "{{hosts[ansible_facts]}}"
