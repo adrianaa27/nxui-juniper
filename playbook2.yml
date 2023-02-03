@@ -16,17 +16,17 @@
         #module: copy 
         #content: "{{ ansible_facts.napalm_lldp_neighbors_detail}},"
         #dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
-    - name: "copy ip"
-      copy: 
-        content: "{{ ansible_host }},"
-        dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
+    #- name: "copy ip"
+      #copy: 
+        #content: "{{ ansible_host }},"
+        #dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
     
     - debug:
         msg: "{{napalm_facts.fqdn}}"
 
     - name: "copy fqdn"
       copy: 
-        content: "{{napalm_facts.fqdn}},"
+        content: "{{napalm_facts.fqdn}}, {{ansible_host}}"
         dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
       delegate_to: localhost
    
