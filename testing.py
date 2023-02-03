@@ -5,10 +5,10 @@ import csv
 import yaml
 from jinja2 import Environment, FileSystemLoader
 
-with open('getfacts.csv','r+') as getfacts_data:
+with open('getfacts.csv','w') as getfacts_data:
     reader = csv.reader(getfacts_data)
     for row in reader:
-        print(row)
-        #getfacts_data.write(row[0])
+        #print(row)
+        getfacts_data.write({napalm_fqdn[0]})
 
 
