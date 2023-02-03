@@ -5,5 +5,5 @@
   
   tasks:
     - name: "fqdn"
-      debug:
-        msg: "{{hosts[ansible_facts]}}"
+      ansible.builtin.debug:
+        msg: "{{ansible_facts}}"
