@@ -17,10 +17,11 @@
         module: copy 
         content: "{{ ansible_facts }}"
         dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
-   
-    - debug:
-        msg: "{{ ansible_host }}"
     - local_action: 
         module: copy 
         content: "{{ ansible_host }}"
         dest: /home/nstadmin/nxui-ansible/nxui-juniper/hostip.txt
+    - debug:
+        msg: "{{napalm_facts}}"
+
+        
