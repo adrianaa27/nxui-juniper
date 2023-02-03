@@ -4,6 +4,5 @@
   gather_facts: False
   
   tasks:
-    - name: "fqdn"
-      debug:
-        msg: "{{napalm_facts.fqdn}}"
+    - debug:
+        msg: "{{ansible_facts}}"
