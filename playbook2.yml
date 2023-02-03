@@ -26,7 +26,7 @@
 
     - name: "copy fqdn"
       copy: 
-        content: "{{napalm_facts.fqdn}},", "{{ ansible_host }},"
+        content: "{{napalm_facts.fqdn}}," "{{ ansible_host }},"
         dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
       delegate_to: localhost
    
