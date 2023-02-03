@@ -6,8 +6,9 @@ import yaml
 from jinja2 import Environment, FileSystemLoader
 
 with open('getfacts.csv','r+') as getfacts_data:
-   
-    for facts in getfacts_data:
-        getfacts_data.write({"napalm_fqdn"[0]})
+    reader = csv.reader(getfacts_data)
+    for row in reader:
+        print(row)
+        #getfacts_data.write({"napalm_fqdn"[0]})
 
 
