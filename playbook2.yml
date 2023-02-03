@@ -24,8 +24,9 @@
     
     - debug:
         msg: "{{napalm_facts.fqdn}}"
-    - name: copy fqdn
+    - name: "copy fqdn"
         copy: 
           content: "{{napalm_facts.fqdn}}"
           dest: /home/nstadmin/nxui-ansible/nxui-juniper/fqdn.txt
-          
+        delegate_to: localhost
+
