@@ -22,6 +22,6 @@
         content: "{{ ansible_host }}"
         dest: /home/nstadmin/nxui-ansible/nxui-juniper/hostip.txt
     - debug:
-        msg: "{{napalm_facts}}"
+        msg: "{{napalm_facts[fqdn]}}"
 
-        
+
