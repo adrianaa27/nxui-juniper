@@ -6,4 +6,4 @@
   tasks:
     - name: "fqdn"
       ansible.builtin.debug:
-        msg: "{{ansible_facts}}"
+        msg: "{{napalm_facts}}"
