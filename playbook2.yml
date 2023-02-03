@@ -24,9 +24,9 @@
     - debug:
         msg: "{{napalm_facts.fqdn}}"
 
-    - name: "copy fqdn"
+    - name: "copy facts to csv"
       copy: 
-        content: "{{napalm_facts.fqdn}}, {{ansible_host}}"
+        content: "{{napalm_facts.fqdn}}, {{ansible_host}}, {{ansible_facts.napalm_lldp_neighbors_detail}} "
         dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
       delegate_to: localhost
    
