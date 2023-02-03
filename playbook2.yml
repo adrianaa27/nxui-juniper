@@ -6,4 +6,4 @@
     - name: fqdn
       debug:
        var: napalm_facts
-       msg: "{{fqdn}}""
+       msg: "{{fqdn}}"
