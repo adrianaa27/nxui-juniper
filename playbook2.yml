@@ -3,7 +3,6 @@
   hosts: juniper
   gather_facts: False
   tasks:
-
     - name: Retrieve get_facts, get_lldp
       napalm_get_facts:
         filter: facts,lldp_neighbors_detail
@@ -15,19 +14,21 @@
         var: ansible_facts
     - local_action: 
         module: copy 
-        content: "{{ ansible_facts }}"
+        content: "{{ ansible_facts.napalm_lldp_neighbors_detail}},"
         dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
     - local_action: 
         module: copy 
-        content: "{{ ansible_host }}"
-        dest: /home/nstadmin/nxui-ansible/nxui-juniper/hostip.txt
+        content: "{{ ansible_host }},"
+        dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
     
     - debug:
         msg: "{{napalm_facts.fqdn}}"
 
     - name: "copy fqdn"
       copy: 
-        content: "{{napalm_facts.fqdn}}"
-        dest: /home/nstadmin/nxui-ansible/nxui-juniper/fqdn.txt
+        content: "{{napalm_facts.fqdn}},"
+        dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
       delegate_to: localhost
+   
+
 
