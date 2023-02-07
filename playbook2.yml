@@ -20,7 +20,7 @@
     - name: save serial to csv
       copy:
         content: "{{ test.ansible_facts.napalm_facts.serial_number }}"
-        dest: /home/nstadmin/nxui-ansible/nxui-junipe/serial.csv
+        dest: /home/nstadmin/nxui-ansible/nxui-juniper/serial.csv
     #- local_action: 
         #module: copy 
         #content: "{{ ansible_facts.napalm_lldp_neighbors_detail}},"
