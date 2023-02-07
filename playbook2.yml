@@ -10,8 +10,10 @@
         #var: napalm_facts
 
     - name: Print all available facts
-      ansible.builtin.debug:
-        var: ansible_facts
+      napalm_get_facts:
+      debug:
+        var: napalm_facts
+        msg: "{{napalm_facts}}"
     #- local_action: 
         #module: copy 
         #content: "{{ ansible_facts.napalm_lldp_neighbors_detail}},"
