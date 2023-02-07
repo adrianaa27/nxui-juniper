@@ -22,7 +22,7 @@
         #dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
     
     - debug:
-        msg: "{{ansible_facts.napalm_lldp_neighbors_detail[0]}}"
+        msg: "{{ansible_facts.napalm_facts.napalm_lldp_neighbors_detail}}"
       #with_items: "{{ lldp.keys() }}"
 
     - name: "copy facts to csv"
