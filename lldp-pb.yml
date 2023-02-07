@@ -30,13 +30,14 @@
     set_fact:
       csv_tmp: >
         "{{test.ansible_facts.napalm_lldp_neighbors_detail[item]}}\n"
-    with_items: "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
+    #with_items: "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
 
   - name: CSV - Write information into .csv file
     lineinfile:
       insertafter: EOF
       dest: "{{ output_path }}/{{ filename }}"
       line: "{{ csv_tmp }}"
+    with_items: "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
 
   - name: CSV - Blank lines removal
     lineinfile:
