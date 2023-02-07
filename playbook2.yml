@@ -26,8 +26,9 @@
 
     - name: Print each switch/port
       debug:
-        msg: "{{test.ansible_facts.napalm_facts.napalm_lldp_neighbors_detail[item]}}"
-      with_items: "{{ ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
+        msg: "{{test.ansible_facts.napalm_facts.napalm_lldp_neighbors_detail.item}}"
+      with_items: "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
 
 
 
+ 
