@@ -5,7 +5,7 @@
   tasks:
     - name: Retrieve get_facts, get_lldp
       napalm_get_facts:
-        filter: facts,lldp_neighbors_detail
+         filter: facts,lldp_neighbors_detail
     - debug:
         var: napalm_facts
 
@@ -21,8 +21,9 @@
         #content: "{{ ansible_host }},"
         #dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
     
-    - debug:
-        msg: "{{napalm_facts.fqdn}}"
+    #- debug:
+        #msg: "{{ansible_facts.napalm_lldp_neighbors_detail[0]}}"
+      #with_items: "{{ lldp.keys() }}"
 
     - name: "copy facts to csv"
       copy: 

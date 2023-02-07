@@ -1,0 +1,38 @@
+---
+- name: Write ios_facts into a csv file
+  hosts: juniper
+  gather_facts: yes
+
+  vars:
+    output_path: "/home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv"
+    filename: "getfacts.csv"
+
+  tasks:
+  - name: CSV - Generate output filename
+    set_fact: date="{{lookup('pipe','date +%Y%m%d')}}"
+    run_once: true
+
+  - name: CSV - Create file and set the header
+    lineinfile:
+      dest: "{{ output_path }}/{{ filename }}"
+      line:
+        device_name,host_ip
+      create: yes
+      state: present
+
+  - name: CSV - Get IOS devices facts
+    set_fact:
+      csv_tmp: >
+        "{{napalm_facts.fqdn}},{{ansible_host}}
+
+  - name: CSV - Write information into .csv file
+      lineinfile:
+    insertafter: EOF
+    dest: "{{ output_path }}/{{ filename }}"
+    line: "{{ csv_tmp }}"
+
+  - name: CSV - Blank lines removal
+    lineinfile:
+      path: "./{{ output_path }}/{{ filename }}"
+      state: absent
+      regex: '^\s*$'
