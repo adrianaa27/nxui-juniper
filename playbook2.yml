@@ -3,14 +3,9 @@
   hosts: juniper
   gather_facts: False
   tasks:
-    #- name: Retrieve get_facts, get_lldp
-      #napalm_get_facts:
-         #filter: facts,lldp_neighbors_detail
-    #- debug:
-        #var: napalm_facts
-
     - name: Print all available facts
       napalm_get_facts:
+        filter: facts,lldp_neighbors_detail
       register: test
       
     - name: print result
