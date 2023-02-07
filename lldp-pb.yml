@@ -26,19 +26,27 @@
     register: test
       
 
-  - name: CSV - Get devices facts
-    set_fact:
-      csv_tmp: >
-        "{{test.ansible_facts.napalm_lldp_neighbors_detail[item]}}\n"
-    with_items:
-        - "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
-        - "{{keys}}"
+  #- name: CSV - Get devices facts
+    #set_fact:
+      #csv_tmp: >
+        #"{{test.ansible_facts.napalm_lldp_neighbors_detail[item]}}\n"
+    #with_items:
+        #- "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
+
+
+  #- name: CSV - Write information into .csv file
+    #lineinfile:
+      #insertafter: EOF
+      #dest: "{{ output_path }}/{{ filename }}"
+      #line: "{{ csv_tmp }}"
 
   - name: CSV - Write information into .csv file
     lineinfile:
       insertafter: EOF
       dest: "{{ output_path }}/{{ filename }}"
-      line: "{{ csv_tmp }}"
+       line: "{{ test.ansible_facts.napalm_lldp_neighbors_detail[item] }}\n"
+    with_items: "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
+  
 
   - name: CSV - Blank lines removal
     lineinfile:
