@@ -8,27 +8,31 @@
         filter: facts,lldp_neighbors_detail
       register: test
       
-    - name: print result
-      debug:
-        msg: "{{test}}"
+    #- name: print result
+      #debug:
+        #msg: "{{test}}"
 
     #- name: save serial to csv
       #copy:
         #content: "{{ test.ansible_facts.napalm_facts.serial_number }}"
         #dest: /home/nstadmin/nxui-ansible/nxui-juniper/serial.csv
 
-    - name: "copy facts to csv"
-      copy: 
-        content: "{{test.ansible_facts.napalm_facts.fqdn}},\n {{ansible_host}},\n {{test.ansible_facts.napalm_facts.napalm_lldp_neighbors_detail['ge-0/0/19']}}"
-        dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
+    #- name: "copy facts to csv"
+      #copy: 
+        #content: "{{test.ansible_facts.napalm_facts.fqdn}},\n {{ansible_host}},\n"
+        #dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
       #with_items: "{{ test.ansible_facts.napalm_facts.napalm_lldp_neighbors_detail.keys() }}"
-      delegate_to: localhost
+      #delegate_to: localhost
 
 
     #- name: Print each switch/port
       #debug:
         #msg: "{{ test.ansible_facts.napalm_facts.napalm_lldp_neighbors_detail['item'] }}"
       #with_items: "{{ test.ansible_facts.napalm_facts.napalm_lldp_neighbors_detail.keys() }}"
+    
+    - name: print result
+      debug:
+        msg: "{{test.ansible_facts.napalm_facts.napalm_lldp_neighbors_detail}}"
 
 
 
