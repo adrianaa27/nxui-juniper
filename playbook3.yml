@@ -8,9 +8,9 @@
     filename: "getfacts.csv"
 
   tasks:
-  - name: CSV - Generate output filename
-    set_fact: date="{{lookup('pipe','date +%Y%m%d')}}"
-    run_once: true
+  #- name: CSV - Generate output filename
+    #set_fact: date="{{lookup('pipe','date +%Y%m%d')}}"
+    #run_once: true
 
   - name: CSV - Create file and set the header
     lineinfile:
@@ -26,10 +26,10 @@
         "{{napalm_facts.fqdn}},{{ansible_host}}
 
   - name: CSV - Write information into .csv file
-      lineinfile:
-    insertafter: EOF
-    dest: "{{ output_path }}/{{ filename }}"
-    line: "{{ csv_tmp }}"
+    lineinfile:
+      insertafter: EOF
+      dest: "{{ output_path }}/{{ filename }}"
+      line: "{{ csv_tmp }}"
 
   - name: CSV - Blank lines removal
     lineinfile:
