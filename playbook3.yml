@@ -1,11 +1,11 @@
 ---
-- name: Write ios_facts into a csv file
+- name: Write facts into a csv file
   hosts: juniper
   gather_facts: false
 
   vars:
-    output_path: "/home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv"
-    filename: "getfacts.csv"
+    output_path: "/home/nstadmin/nxui-ansible/nxui-juniper/testgetfacts.csv"
+    filename: "testgetfacts.csv"
 
   tasks:
   #- name: CSV - Generate output filename
