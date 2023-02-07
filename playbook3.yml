@@ -16,7 +16,7 @@
     lineinfile:
       dest: "{{ output_path }}/{{ filename }}"
       line:
-        device_name,host_ip
+        device_name,host_ip,lldp
       create: yes
       state: present
 
@@ -33,7 +33,7 @@
   - name: CSV - Get IOS devices facts
     set_fact:
       csv_tmp: >
-        {{napalm_facts.fqdn}},{{ansible_host}}
+        {{napalm_facts.fqdn}},{{ansible_host}},{{ansible_facts.napalm_lldp_neighbors_detail.ge-0/0/19}}
 
   - name: CSV - Write information into .csv file
     lineinfile:
