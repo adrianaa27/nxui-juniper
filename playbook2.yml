@@ -31,12 +31,11 @@
         dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
       delegate_to: localhost
    
-    - name: Gather information from lldp
-      lldp:
 
     - name: Print each switch/port
       debug:
         msg: "{{ ansible_facts.napalm_lldp_neighbors_detail[item]['remote_chassis_id']['remote_system_name'] }}"
-      with_items: "{{ lldp.keys() }}"
+      with_items: "{{ ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
+
 
 
