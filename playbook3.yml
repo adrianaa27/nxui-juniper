@@ -20,6 +20,16 @@
       create: yes
       state: present
 
+  - name: Retrieve get_facts, get_lldp
+      napalm_get_facts:
+          filter: facts,lldp_neighbors_detail
+  - debug:
+      var: napalm_facts
+
+  - name: Print all available facts
+    ansible.builtin.debug:
+      var: ansible_facts
+
   - name: CSV - Get IOS devices facts
     set_fact:
       csv_tmp: >
