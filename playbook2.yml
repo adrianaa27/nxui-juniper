@@ -10,8 +10,9 @@
         #var: napalm_facts
 
     - name: Print all available facts
-      napalm_get_facts:
-      debug:
+        napalm_get_facts:
+      
+    - debug:
         var: napalm_facts
         msg: "{{napalm_facts}}"
     #- local_action: 
