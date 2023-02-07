@@ -1,0 +1,48 @@
+---
+- name: Write facts into a csv file
+  hosts: juniper
+  gather_facts: false
+
+  vars:
+    output_path: "/home/nstadmin/nxui-ansible/nxui-juniper/hostfacts.csv"
+    filename: "hostfacts.csv"
+
+  tasks:
+  #- name: CSV - Generate output filename
+    #set_fact: date="{{lookup('pipe','date +%Y%m%d')}}"
+    #run_once: true
+
+  - name: CSV - Create file and set the header
+    lineinfile:
+      dest: "{{ output_path }}/{{ filename }}"
+      line:
+        device_name,host_ip,
+      create: yes
+      state: present
+
+  - name: Retrieve get_facts, get_lldp
+    napalm_get_facts:
+        filter: facts,lldp_neighbors_detail
+  - debug:
+      var: napalm_facts
+
+  - name: Print all available facts
+    ansible.builtin.debug:
+      var: ansible_facts
+
+  - name: CSV - Get devices facts
+    set_fact:
+      csv_tmp: >
+        {{napalm_facts.fqdn}},{{ansible_host}}
+
+  - name: CSV - Write information into .csv file
+    lineinfile:
+      insertafter: EOF
+      dest: "{{ output_path }}/{{ filename }}"
+      line: "{{ csv_tmp }}"
+
+  - name: CSV - Blank lines removal
+    lineinfile:
+      path: "./{{ output_path }}/{{ filename }}"
+      state: absent
+      regex: '^\s*$'
