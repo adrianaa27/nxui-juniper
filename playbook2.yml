@@ -36,7 +36,7 @@
 
     - name: Print each switch/port
       debug:
-        msg: "{{ lldp[item]['chassis']['name'] }} / {{ lldp[item]['port']['ifname'] }}"
+        msg: "{{ ansible_facts.napalm_lldp_neighbors_detail[item]['remote_chassis_id']['remote_system_name'] }}"
       with_items: "{{ lldp.keys() }}"
 
 
