@@ -1,7 +1,7 @@
 ---
 - name: Write ios_facts into a csv file
   hosts: juniper
-  gather_facts: yes
+  gather_facts: true
 
   vars:
     output_path: "/home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv"
@@ -23,7 +23,7 @@
   - name: CSV - Get IOS devices facts
     set_fact:
       csv_tmp: >
-        "{{napalm_facts.fqdn}},{{ansible_host}}
+        {{napalm_facts.fqdn}},{{ansible_host}}
 
   - name: CSV - Write information into .csv file
     lineinfile:
