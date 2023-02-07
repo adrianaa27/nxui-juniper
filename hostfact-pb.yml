@@ -11,12 +11,11 @@
   #- name: CSV - Generate output filename
     #set_fact: date="{{lookup('pipe','date +%Y%m%d')}}"
     #run_once: true
-
   - name: CSV - Create file and set the header
     lineinfile:
       dest: "{{ output_path }}/{{ filename }}"
       line:
-        device_name,host_ip,
+        device_name,host_ip, interface_details
       create: yes
       state: present
 
@@ -25,16 +24,20 @@
       filter: facts,lldp_neighbors_detail
     register: test
 
-  - name: CSV - Get devices facts
-    set_fact:
-      csv_tmp: >
-        {{test.ansible_facts.napalm_facts.fqdn}},{{ansible_host}}
+  #- name: CSV - Get devices facts
+    #set_fact:
+      #csv_tmp: >
+        #{{test.ansible_facts.napalm_facts.fqdn}},{{ansible_host}}
 
   - name: CSV - Write information into .csv file
     lineinfile:
       insertafter: EOF
       dest: "{{ output_path }}/{{ filename }}"
-      line: "{{ csv_tmp }}"
+      line: "{{ test.ansible_facts.napalm_facts.fqdn }}"
+      line: "{{ ansible_host }}"
+      line: "{{ test.ansible_facts.napalm_lldp_neighbors_detail[item] }}\n"
+    with_items: 
+      - "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
 
   - name: CSV - Blank lines removal
     lineinfile:
