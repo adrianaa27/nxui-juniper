@@ -10,7 +10,7 @@
         #var: napalm_facts
 
     - name: Print all available facts
-        napalm_get_facts:
+      napalm_get_facts:
       
     - debug:
         var: napalm_facts
