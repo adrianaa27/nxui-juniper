@@ -10,7 +10,7 @@
       
     - name: print result
       debug:
-        msg: "{{test.ansible_facts.napalm_facts.serial_number}}"
+        msg: "{{test}}"
 
     - name: save serial to csv
       copy:
