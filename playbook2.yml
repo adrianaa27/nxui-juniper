@@ -19,14 +19,11 @@
 
     - name: "copy facts to csv"
       copy: 
-        content: "{{test.ansible_facts.napalm_facts.fqdn}},\n {{ansible_host}},\n {{ test.ansible_facts.napalm_lldp_neighbors_detail[item] }},\n"
+        content: "{{test.ansible_facts.napalm_facts.fqdn}},\n {{ansible_host}},\n"
+        #{{ test.ansible_facts.napalm_lldp_neighbors_detail[item] }},\n"
         dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
-      with_items: 
-          - "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys()}}"
-        
+      #with_items: "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys()}}"
       delegate_to: localhost
-
-
     #- name: Print each switch/port
       #debug:
         #msg: "{{ test.ansible_facts.napalm_lldp_neighbors_detail[item] }}"
@@ -37,5 +34,19 @@
         msg: "{{test.ansible_facts.napalm_lldp_neighbors_detail}}"
 
 
+     - name: "copy facts to csv"
+        copy: 
+        content: "{{test.ansible_facts.napalm_facts.fqdn}},\n {{ansible_host}},\n {{ test.ansible_facts.napalm_lldp_neighbors_detail[item] }},\n"
+        dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
+       with_items: 
+        - "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys()}}"
+       delegate_to: localhost
 
- 
+
+    - name: copy lldp KVs
+      lineinfile:
+        insertafter: EOF
+        dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
+        line: "{{ test.ansible_facts.napalm_lldp_neighbors_detail[item] }}\n"
+      with_items: 
+       - "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
