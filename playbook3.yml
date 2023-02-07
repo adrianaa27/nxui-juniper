@@ -21,8 +21,8 @@
       state: present
 
   - name: Retrieve get_facts, get_lldp
-      napalm_get_facts:
-          filter: facts,lldp_neighbors_detail
+    napalm_get_facts:
+        filter: facts,lldp_neighbors_detail
   - debug:
       var: napalm_facts
 
