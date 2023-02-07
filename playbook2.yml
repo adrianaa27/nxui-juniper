@@ -15,7 +15,7 @@
       
     - name: print result
       debug:
-        msg: "{{test.ansible_facts.napalm_facts.serial_number[0]}}"
+        msg: "{{test.ansible_facts.napalm_facts.serial_number[]}}"
     #- local_action: 
         #module: copy 
         #content: "{{ ansible_facts.napalm_lldp_neighbors_detail}},"
