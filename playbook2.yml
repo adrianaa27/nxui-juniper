@@ -31,5 +31,12 @@
         dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
       delegate_to: localhost
    
+    - name: Gather information from lldp
+      lldp:
+
+    - name: Print each switch/port
+      debug:
+        msg: "{{ lldp[item]['chassis']['name'] }} / {{ lldp[item]['port']['ifname'] }}"
+      with_items: "{{ lldp.keys() }}"
 
 
