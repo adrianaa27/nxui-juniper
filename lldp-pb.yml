@@ -31,14 +31,12 @@
       csv_tmp: >
         "{{test.ansible_facts.napalm_lldp_neighbors_detail[item]}}\n"
     with_items: "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
-    register: item
 
   - name: CSV - Write information into .csv file
     lineinfile:
       insertafter: EOF
       dest: "{{ output_path }}/{{ filename }}"
-      line: "{{ csv_tmp }} {{item.stdout_lines}}"
-      loop: "{{ item.stdout_lines }}"
+      line: "{{ csv_tmp }}"
 
   - name: CSV - Blank lines removal
     lineinfile:
