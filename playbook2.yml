@@ -21,7 +21,7 @@
       copy: 
         content: "{{test.ansible_facts.napalm_facts.fqdn}},\n {{ansible_host}},\n {{ test.ansible_facts.napalm_lldp_neighbors_detail[item] }},\n"
         dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
-      with_items: "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
+      with_items: "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }},\n"
       delegate_to: localhost
 
 
