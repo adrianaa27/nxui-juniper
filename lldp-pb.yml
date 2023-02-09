@@ -43,10 +43,10 @@
     #with_items: "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
     delegate_to: localhost
 
-  - name: CSV - Blank lines removal
-    lineinfile:
-      path: "./{{ output_path }}/{{ filename }}"
-      state: absent
-      regex: '^\s*$'
+  #- name: CSV - Blank lines removal
+    #lineinfile:
+      #path: "./{{ output_path }}/{{ filename }}"
+      #state: absent
+      #regex: '^\s*$'
 
      
