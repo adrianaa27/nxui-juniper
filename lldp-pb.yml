@@ -3,23 +3,18 @@
   hosts: juniper
   gather_facts: false
 
-  vars:
-    output_path: "/home/nstadmin/nxui-ansible/nxui-juniper/lldpfacts.txt"
-    filename: "lldpfacts.txt"
-
   tasks:
   #- name: CSV - Generate output filename
     #set_fact: date="{{lookup('pipe','date +%Y%m%d')}}"
     #run_once: true
 
-  - name: CSV - Create file and set the header
-    lineinfile:
-      dest: "{{ output_path }}/{{ filename }}"
-      line:
-        lldp data
-      create: yes
-      
-      state: present
+  #- name: CSV - Create file and set the header
+    #lineinfile:
+      #dest: "{{ output_path }}/{{ filename }}"
+      #line:
+        #lldp data
+      #create: yes
+      #state: present
 
   - name: get facts
     napalm_get_facts:
@@ -37,7 +32,7 @@
 
   - name: copy facts to txt
     copy:
-      dest: "{{ output_path }}/{{ filename }}"
+      dest: home/nstadmin/nxui-ansible/nxui-juniper/lldpfacts.txt
       content: "{{ test.ansible_facts.napalm_lldp_neighbors_detail}}"
       #[item][0]['parent_interface'] }},{{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0]['remote_chassis_id'] }}
     #with_items: "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
