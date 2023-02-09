@@ -24,7 +24,7 @@ with open('lldpfacts.txt', 'r') as lldp_file:
     txt_reader = lldp_file.readlines()
     #print(txt_reader) 
     for line in txt_reader:
-        #(eval(line))
+        (eval(line))
         lldp_dl.add(eval(line))
 
         
