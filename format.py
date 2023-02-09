@@ -1,6 +1,5 @@
 
 import csv 
-import pickle
 import yaml
 from jinja2 import Environment, FileSystemLoader
 
@@ -19,15 +18,12 @@ with open('getfacts.csv', 'r') as csv_data:
                 #destination_data.write("    details: " + line[2] + "\n")
         
 
-lldp_dl = {}
+
 with open('lldpfacts.txt', 'r') as lldp_file:
     txt_reader = lldp_file.readlines()
-
-    new_lines = list(eval(txt_reader))
-    print(str(new_lines))
-    #print(txt_reader) 
-    #for line in txt_reader:
-        #(eval(line))
+    print(txt_reader[0]) 
+    
+       
         
 
         
