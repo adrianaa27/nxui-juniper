@@ -20,7 +20,7 @@
       lineinfile:
         dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
         line: "{{test.ansible_facts.napalm_facts.fqdn}},{{ansible_host}},{{ item }},{{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0] }},"
-      with_indexed_items: "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
+      with_items: "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
       delegate_to: localhost
 
     #- name: copy lldp facts
