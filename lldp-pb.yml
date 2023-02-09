@@ -18,6 +18,7 @@
       #line:
         #interface,remote_chassis_id,remote_port
       #create: yes
+      
       #state: present
 
   - name: get facts
@@ -27,7 +28,7 @@
 
   - name: CSV - Write information into .csv file
     lineinfile:
-      insertafter: EOF
+      #insertafter: EOF
       dest: "{{ output_path }}/{{ filename }}"
       line: "{{ item }},{{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0]['parent_interface'] }},{{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0]['remote_port'] }},{{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0]['remote_chassis_id'] }},{{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0]['remote_port_description'] }},"
     with_items: 
