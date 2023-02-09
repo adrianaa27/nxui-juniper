@@ -29,23 +29,23 @@
       debug:
         msg: "{{test.ansible_facts.napalm_lldp_neighbors_detail}}"
 
-    #- name: copy lldp facts
-      #lineinfile:
-        #insertafter: EOF
-        #dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
-        #line: "{{ test.ansible_facts.napalm_lldp_neighbors_detail[item] }}\n"
-      #with_items: 
-       #- "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
+    - name: copy lldp facts
+      lineinfile:
+        insertafter: EOF
+        dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
+        line: "{{ test.ansible_facts.napalm_lldp_neighbors_detail[item] }}\n"
+      with_items: 
+       - "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
 
     #- name: Print each switch/port
       #debug:
         #msg: "{{ test.ansible_facts.napalm_lldp_neighbors_detail[item] }}"
       #with_items: "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
 
-    - name: copy lldp facts
-      lineinfile:
-        insertafter: EOF
-        dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
-        line: "{{ test.ansible_facts.napalm_lldp_neighbors_detail['ge-0/0/19'][0]['parent_interface'] }}\n"
+    #- name: copy lldp facts
+      #lineinfile:
+        #insertafter: EOF
+        #dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
+        #line: "{{ test.ansible_facts.napalm_lldp_neighbors_detail['ge-0/0/19'][0]['parent_interface'] }}\n"
       #with_items: 
        #- "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
