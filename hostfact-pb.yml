@@ -37,7 +37,7 @@
       #line: "{{ csv_tmp }}"
 
   - name: CSV - Write lldp info into .csv file
-    lineinfile:
+    line:
       insertafter: EOF
       dest: "{{ output_path }}/{{ filename }}"
       line: " {{ csv_tmp }} {{ test.ansible_facts.napalm_lldp_neighbors_detail[item]}}\n"
