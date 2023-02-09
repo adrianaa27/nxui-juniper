@@ -23,9 +23,12 @@ with open('lldpfacts.txt', 'r') as lldp_file:
     txt_reader = lldp_file.readlines()
     #print(txt_reader) 
     for line in txt_reader:
-       #(eval(line))
         lldp_dl.append(eval(line))
-print(lldp_dl)        
+#print(lldp_dl)  
+#        
+    for k in lldp_dl:
+        if k.startswith('ge'):
+            print(k)  
 
         
    
