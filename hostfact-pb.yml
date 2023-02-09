@@ -12,15 +12,15 @@
     #set_fact: date="{{lookup('pipe','date +%Y%m%d')}}"
     #run_once: true
 
-  - name: CSV - Create file and set the header
-    lineinfile:
-      dest: "{{ output_path }}/{{ filename }}"
-      line:
-        device_name,host_ip,
-      create: yes
-      state: present
+  #- name: CSV - Create file and set the header
+    #lineinfile:
+      #dest: "{{ output_path }}/{{ filename }}"
+      #line:
+        #device_name,host_ip
+      #create: yes
+      #state: present
 
-  - name: Print all available facts
+  - name: get facts
     napalm_get_facts:
       filter: facts,lldp_neighbors_detail
     register: test
@@ -40,7 +40,7 @@
     lineinfile:
       insertafter: EOF
       dest: "{{ output_path }}/{{ filename }}"
-      line: "{{ test.ansible_facts.napalm_lldp_neighbors_detail[item] }}\n"
+      line: "{{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0]['remote_chassis_id'] }}\n"
     with_items: 
       - "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
 
