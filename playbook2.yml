@@ -16,10 +16,10 @@
         msg: "{{test.ansible_facts.napalm_lldp_neighbors_detail}}"
 
 
-    - name: copy facts to csv
-      copy: 
-        content: "{{test.ansible_facts.napalm_facts.fqdn}},{{ansible_host}},{{ item }} : {{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0]['remote_chassis_id'] }},"
+    - name: copy facts to csv 
+      lineinfile:
         dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
+        line: "{{test.ansible_facts.napalm_facts.fqdn}},{{ansible_host}},{{ item }} : {{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0]['remote_chassis_id'] }},"
       with_indexed_items: 
         "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
       delegate_to: localhost
