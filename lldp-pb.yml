@@ -36,7 +36,7 @@
 
   - name: copy facts to txt
     copy:
-      dest: home/nstadmin/nxui-ansible/nxui-juniper/lldpfacts.txt
+      dest: /home/nstadmin/nxui-ansible/nxui-juniper/lldpfacts.txt
       content: "{{ test.ansible_facts.napalm_lldp_neighbors_detail}}"
       #[item][0]['parent_interface'] }},{{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0]['remote_chassis_id'] }}
     #with_items: "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
