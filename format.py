@@ -25,7 +25,7 @@ with open('getfacts.csv', 'r') as csv_data:
     #print(txt_reader) 
     #for line in txt_reader:
         #print(line)
-    lldp_file = open('getfacts.txt', 'r')
+    lldp_file = open('lldpfacts.txt', 'r')
     dict_list = pickle.load(lldp_file)
 
     for i in dict_list:
