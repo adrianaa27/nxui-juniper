@@ -18,13 +18,13 @@ with open('getfacts.csv', 'r') as csv_data:
                 #destination_data.write("    details: " + line[2] + "\n")
         
 
-lldp_dl = {}
+lldp_dl = []
 with open('lldpfacts.txt', 'r') as lldp_file:
     txt_reader = lldp_file.readlines()
     #print(txt_reader) 
     for line in txt_reader:
-        new_line = (eval(line))
-        lldp_dl.add(new_line)
+        #new_line = (eval(line))
+        lldp_dl.add(line)
         
 
         
