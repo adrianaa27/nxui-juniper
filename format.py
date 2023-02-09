@@ -20,12 +20,21 @@ with open('getfacts.csv', 'r') as csv_data:
         
 
 
-with open('lldpfacts.txt', 'r') as lldp_file:
-    txt_reader = pickle.load(lldp_file)
+#with open('lldpfacts.txt', 'r') as lldp_file:
+    #txt_reader = pickle.load(lldp_file)
     #print(txt_reader) 
-    for line in txt_reader:
-        print(line)
-            
+    #for line in txt_reader:
+        #print(line)
+try:
+    lldp_file = open('getfacts.txt', 'r')
+    dict_list = pickle.load(lldp_file)
+
+    for i in dict_list:
+        print(i)
+    lldp_file.close() 
+
+except:     
+    print("error")     
 
 
 
