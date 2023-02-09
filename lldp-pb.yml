@@ -12,12 +12,12 @@
     #set_fact: date="{{lookup('pipe','date +%Y%m%d')}}"
     #run_once: true
 
-  #- name: CSV - Create file and set the header
-    #lineinfile:
-      #dest: "{{ output_path }}/{{ filename }}"
-      #line:
-        #interface,remote_chassis_id,remote_port
-      #create: yes
+  - name: CSV - Create file and set the header
+    lineinfile:
+      dest: "{{ output_path }}/{{ filename }}"
+      line:
+        lldp data
+      create: yes
       
       #state: present
 
