@@ -19,7 +19,7 @@
         lldp data
       create: yes
       
-      #state: present
+      state: present
 
   - name: get facts
     napalm_get_facts:
