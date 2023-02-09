@@ -15,11 +15,10 @@
       debug:
         msg: "{{test.ansible_facts.napalm_lldp_neighbors_detail}}"
 
-
     - name: copy facts to csv 
       lineinfile:
         dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
-        line: "{{test.ansible_facts.napalm_facts.fqdn}},{{ansible_host}},{{ item }},"
+        line: "{{test.ansible_facts.napalm_facts.fqdn}},{{ansible_host}},"
       #with_items: "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
       delegate_to: localhost
 
