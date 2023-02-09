@@ -19,7 +19,7 @@
 
     - name: copy facts to csv
       copy: 
-        content: "{{test.ansible_facts.napalm_facts.fqdn}},{{ansible_host}},{{ test.ansible_facts.napalm_lldp_neighbors_detail[item]['parent_interface'] }}"
+        content: "{{test.ansible_facts.napalm_facts.fqdn}},{{ansible_host}},{{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0]['parent_interface'] }}"
         dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
       with_items: "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys()}}"
       delegate_to: localhost
