@@ -25,7 +25,7 @@ with open('lldpfacts.txt', 'r') as lldp_file:
     for line in txt_reader:
         lldp_dl.append(eval(line))
 #print(lldp_dl.items[0])  
-for items in lldp_dl:
+for k,v in lldp_dl.items():
     print(lldp_dl.items[0])  
     
 
