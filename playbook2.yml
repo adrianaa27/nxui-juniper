@@ -30,10 +30,11 @@
         msg: "{{test.ansible_facts.napalm_lldp_neighbors_detail}}"
 
     - name: copy lldp facts
-      lineinfile:
-        insertafter: EOF
+      #lineinfile:
+        #insertafter: EOF
+      copy:
+        content: "{{ item }} : {{ test.ansible_facts.napalm_lldp_neighbors_detail[item] }}"
         dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
-        line: "{{ item }} : {{ test.ansible_facts.napalm_lldp_neighbors_detail[item] }}"
       with_items: 
        - "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
 
