@@ -3,6 +3,10 @@
   hosts: juniper
   gather_facts: false
 
+  #vars:
+    #output_path: "/home/nstadmin/nxui-ansible/nxui-juniper/lldpfacts.txt"
+    #filename: "lldpfacts.txt"
+
   tasks:
   #- name: CSV - Generate output filename
     #set_fact: date="{{lookup('pipe','date +%Y%m%d')}}"
