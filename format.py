@@ -22,10 +22,13 @@ with open('getfacts.csv', 'r') as csv_data:
 lldp_dl = {}
 with open('lldpfacts.txt', 'r') as lldp_file:
     txt_reader = lldp_file.readlines()
+
+    new_lines = list(eval(txt_reader))
+    print(str(new_lines))
     #print(txt_reader) 
-    for line in txt_reader:
-        (eval(line))
-        lldp_dl.add(eval(line))
+    #for line in txt_reader:
+        #(eval(line))
+        
 
         
    
