@@ -23,8 +23,8 @@ with open('lldpfacts.txt', 'r') as lldp_file:
     txt_reader = lldp_file.readlines()
     #print(txt_reader) 
     for line in txt_reader:
-        #new_line = (eval(line))
-        lldp_dl.append(line)
+       #(eval(line))
+        lldp_dl.append(eval(line))
 print(lldp_dl)        
 
         
