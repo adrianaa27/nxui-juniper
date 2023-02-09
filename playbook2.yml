@@ -46,6 +46,6 @@
       lineinfile:
         insertafter: EOF
         dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
-        line: "{{ test.ansible_facts.napalm_lldp_neighbors_detail['ge-0/0/19'][parent_interface] }}\n"
+        line: "{{ test.ansible_facts.napalm_lldp_neighbors_detail.['ge-0/0/19'] }}\n"
       #with_items: 
        #- "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
