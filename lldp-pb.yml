@@ -4,8 +4,8 @@
   gather_facts: false
 
   vars:
-    output_path: "/home/nstadmin/nxui-ansible/nxui-juniper/lldpfacts.csv"
-    filename: "lldpfacts.csv"
+    output_path: "/home/nstadmin/nxui-ansible/nxui-juniper/lldpfacts.txt"
+    filename: "lldpfacts.txt"
 
   tasks:
   #- name: CSV - Generate output filename
@@ -26,14 +26,22 @@
       filter: facts,lldp_neighbors_detail
     register: test
 
-  - name: CSV - Write information into .csv file
-    lineinfile:
+  #- name:  - Write information into .txt file
+    #lineinfile:
       #insertafter: EOF
-      dest: "{{ output_path }}/{{ filename }}"
-      line: "{{ item }},{{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0]['parent_interface'] }},{{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0]['remote_port'] }},{{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0]['remote_chassis_id'] }},{{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0]['remote_port_description'] }},"
-    with_items: 
-      - "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
-  
+      #dest: "{{ output_path }}/{{ filename }}"
+      #line: "{{ item }},{{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0]['parent_interface'] }},{{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0]['remote_port'] }},{{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0]['remote_chassis_id'] }},{{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0]['remote_port_description'] }},"
+    #with_items: 
+      #- "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
+
+
+  - name: copy facts to txt
+    copy:
+      dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
+      content: "{{ test.ansible_facts.napalm_lldp_neighbors_detail}}"
+      #[item][0]['parent_interface'] }},{{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0]['remote_chassis_id'] }}
+    #with_items: "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
+    delegate_to: localhost
 
   - name: CSV - Blank lines removal
     lineinfile:
