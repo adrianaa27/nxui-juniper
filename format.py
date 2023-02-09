@@ -23,8 +23,8 @@ with open('getfacts.csv', 'r') as csv_data:
 with open('lldpfacts.txt', 'r') as lldp_file:
     txt_reader = lldp_file.readlines()
     #print(txt_reader) 
-    for line in txt_reader:
-        print(eval(line))
+    lldp_dict = (eval(txt_reader))
+    print(lldp_dict)
    
 
 
