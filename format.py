@@ -25,16 +25,13 @@ with open('getfacts.csv', 'r') as csv_data:
     #print(txt_reader) 
     #for line in txt_reader:
         #print(line)
-try:
     lldp_file = open('getfacts.txt', 'r')
     dict_list = pickle.load(lldp_file)
 
     for i in dict_list:
         print(i)
     lldp_file.close() 
-
-except:     
-    print("error")     
+   
 
 
 
