@@ -1,6 +1,6 @@
 
 import csv 
-import txt
+import pickle
 import yaml
 from jinja2 import Environment, FileSystemLoader
 
@@ -16,10 +16,22 @@ with open('getfacts.csv', 'r') as csv_data:
             #destination_data.write("device:" + "\n    ")
                 destination_data.write("- device_name: "+'"'+ line[0]+'"'+"\n")
                 destination_data.write("    host_ip: " + line[1] + "\n")
-                destination_data.write("    details: " + line[2] + "\n")
+                #destination_data.write("    details: " + line[2] + "\n")
         
+
+
 with open('lldpfacts.txt', 'r') as lldp_file:
-    txt_reader = lldp_file.readlines()
-    print(txt_reader) 
-    
+    txt_reader = pickle.load(lldp_file)
+    #print(txt_reader) 
+    for line in txt_reader:
+        print(line)
+            
+
+
+
+
+
+
+
+                
 

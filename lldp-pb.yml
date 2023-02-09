@@ -2,37 +2,11 @@
 - name: Write facts into a csv file
   hosts: juniper
   gather_facts: false
-
-  #vars:
-    #output_path: "/home/nstadmin/nxui-ansible/nxui-juniper/lldpfacts.txt"
-    #filename: "lldpfacts.txt"
-
   tasks:
-  #- name: CSV - Generate output filename
-    #set_fact: date="{{lookup('pipe','date +%Y%m%d')}}"
-    #run_once: true
-
-  #- name: CSV - Create file and set the header
-    #lineinfile:
-      #dest: "{{ output_path }}/{{ filename }}"
-      #line:
-        #lldp data
-      #create: yes
-      #state: present
-
   - name: get facts
     napalm_get_facts:
       filter: facts,lldp_neighbors_detail
     register: test
-
-  #- name:  - Write information into .txt file
-    #lineinfile:
-      #insertafter: EOF
-      #dest: "{{ output_path }}/{{ filename }}"
-      #line: "{{ item }},{{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0]['parent_interface'] }},{{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0]['remote_port'] }},{{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0]['remote_chassis_id'] }},{{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0]['remote_port_description'] }},"
-    #with_items: 
-      #- "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
-
 
   - name: copy facts to txt
     copy:
