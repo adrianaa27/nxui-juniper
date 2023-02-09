@@ -12,39 +12,24 @@
     #set_fact: date="{{lookup('pipe','date +%Y%m%d')}}"
     #run_once: true
 
-  - name: CSV - Create file and set the header
-    lineinfile:
-      dest: "{{ output_path }}/{{ filename }}"
-      line:
-        interface,remote_chassis_id,remote_port
-      create: yes
-      state: present
+  #- name: CSV - Create file and set the header
+    #lineinfile:
+      #dest: "{{ output_path }}/{{ filename }}"
+      #line:
+        #interface,remote_chassis_id,remote_port
+      #create: yes
+      #state: present
 
-  - name: Print all available facts
+  - name: get facts
     napalm_get_facts:
       filter: facts,lldp_neighbors_detail
     register: test
-      
-
-  #- name: CSV - Get devices facts
-    #set_fact:
-      #csv_tmp: >
-        #"{{test.ansible_facts.napalm_lldp_neighbors_detail[item]}}\n"
-    #with_items:
-        #- "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
-
-
-  #- name: CSV - Write information into .csv file
-    #lineinfile:
-      #insertafter: EOF
-      #dest: "{{ output_path }}/{{ filename }}"
-      #line: "{{ csv_tmp }}"
 
   - name: CSV - Write information into .csv file
     lineinfile:
       insertafter: EOF
       dest: "{{ output_path }}/{{ filename }}"
-      line: "{{ test.ansible_facts.napalm_lldp_neighbors_detail[item] }}\n"
+      line: "{{ item }},{{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0]['parent_interface'] }},{{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0]['remote_port'] }},{{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0]['remote_chassis_id'] }},{{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0]['remote_port_description'] }},"
     with_items: 
       - "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
   
