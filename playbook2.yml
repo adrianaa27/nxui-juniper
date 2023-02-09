@@ -19,8 +19,8 @@
     - name: copy facts to csv 
       lineinfile:
         dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
-        line: "{{test.ansible_facts.napalm_facts.fqdn}},{{ansible_host}},{{ item }},{{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0] }},"
-      with_items: "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
+        line: "{{test.ansible_facts.napalm_facts.fqdn}},{{ansible_host}},{{ item }},"
+      #with_items: "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
       delegate_to: localhost
 
     #- name: copy lldp facts
@@ -30,10 +30,6 @@
       #with_items: 
         #"{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
 
-    #- name: Print each port
-      #debug:
-        #msg: "{{ test.ansible_facts.napalm_lldp_neighbors_detail[item] }}"
-      #with_items: "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
 
     #- name: copy lldp facts
       #lineinfile:
