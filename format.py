@@ -16,4 +16,5 @@ with open('getfacts.csv', 'r') as csv_data:
             #destination_data.write("device:" + "\n    ")
             destination_data.write("  - device_name: "+'"'+ line[0]+'"'+"\n    ")
             destination_data.write("host_ip: " + line[1] + "\n")
-            destination_data.write("details: " + line[3] + "\n")
+            destination_data.write("details: " + line[2] + "\n")
+
