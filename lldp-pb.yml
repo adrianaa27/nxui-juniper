@@ -37,7 +37,7 @@
 
   - name: copy facts to txt
     copy:
-      dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
+      dest: "{{ output_path }}/{{ filename }}"
       content: "{{ test.ansible_facts.napalm_lldp_neighbors_detail}}"
       #[item][0]['parent_interface'] }},{{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0]['remote_chassis_id'] }}
     #with_items: "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
