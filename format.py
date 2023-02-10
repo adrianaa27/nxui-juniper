@@ -35,13 +35,22 @@ with open('lldpfacts.txt', 'r') as lldp_file:
                 destination_data.write("          remote_system_enable_capab: "+ i['remote_system_enable_capab'][0] +"\n")  
                 destination_data.write("          parent_interface: "+ i['parent_interface'] +"\n")   
 
-config = yaml.safe_load(open('format.yml'))
-env = Environment(loader = FileSystemLoader('rewriteJunos.j2'), trim_blocks=True, lstrip_blocks=True)
-template = env.get_template('junos_details.txt')
-   
 
+def generate_hosts():
+    """
+    Load In hosts from the destination.csv
+    Generate a host file config from template found in the inventory directory
+    
+    """
+    my_vars = yaml.safe_load(open("format.yml"))
+    env = Environment(loader=FileSystemLoader("./"), trim_blocks=True, lstrip_blocks=True)
+    template = env.get_template("rewriteJunos.j2")
+    configuration = template.render(my_vars)
+    #with open('inventory\hosts.yml','w') as destination_data:
+        #destination_data.write(configuration)
+    print("Process run")
 
-
+generate_hosts()
 
 
 
