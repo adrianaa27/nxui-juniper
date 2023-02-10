@@ -24,7 +24,13 @@ with open('lldpfacts.txt', 'r') as lldp_file:
     #print(txt_reader) 
     for line in txt_reader:
         lldp_dl = (eval(line))
-print(lldp_dl)
+#print(lldp_dl)
+
+for k, v in lldp_dl.items():
+    for i in v:
+        print(k, ":", i)
+
+
 
         
    
