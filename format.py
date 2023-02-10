@@ -21,6 +21,7 @@ with open('getfacts.csv', 'r') as csv_data:
 
 
 lldp_dl = {}
+port_details_dict = {}
 with open('lldpfacts.txt', 'r') as lldp_file:
     txt_reader = lldp_file.readlines()
     #print(txt_reader) 
@@ -29,10 +30,11 @@ with open('lldpfacts.txt', 'r') as lldp_file:
 #print(lldp_dl)
     for port, port_details in lldp_dl.items():
         for i in port_details:
+            port_details_dicts = i
             #print(port, ":", i)  
             #with open('format.yml','a') as destination_data:
                 #destination_data.write("    details: "+ port +"\n")        
-            for items, values in i.items():
+            for items, values in port_details_dict.items():
                 print(items[0])
 
 
