@@ -7,7 +7,7 @@ with open('getfacts.csv', 'r') as csv_data:
     csv_reader = csv.reader(csv_data)
     #print(csv_reader)
     with open('format.yml','w') as destination_data:
-        destination_data.write("---\ndevice:")
+        destination_data.write("---\ndevice:" +"\n")
         for line in csv_reader:
             #open up the context manager to the file destination.txt
             with open('format.yml','a') as destination_data:
@@ -35,7 +35,8 @@ with open('lldpfacts.txt', 'r') as lldp_file:
                 destination_data.write("        remote_system_capab: "+ i['remote_system_capab'][0] +"\n")   
                 destination_data.write("        remote_system_enable_capab: "+ i['remote_system_enable_capab'][0] +"\n")  
                 destination_data.write("        parent_interface: "+ i['parent_interface'] +"\n")   
-           
+
+
                 
 
 
