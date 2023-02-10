@@ -1,8 +1,6 @@
 ---
-{% for in   %}
-    {{ devs["device_name"]}}:
-        hostname: {{devs["host_ip"]}}
-        platform: junos
-        groups:
-            - juniper
+{% for items in devices %}
+    {% for k, v in port.items() %}
+        
+    {% endfor %}
 {% endfor %}
