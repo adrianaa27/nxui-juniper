@@ -7,10 +7,6 @@
       napalm_get_facts:
         filter: facts,lldp_neighbors_detail
       register: test
-      
-    #- name: print result
-      #debug:
-        #msg: "{{test}}"
     - name: print lldp
       debug:
         msg: "{{test.ansible_facts.napalm_lldp_neighbors_detail}}"
@@ -21,19 +17,8 @@
         content: "{{test.ansible_facts.napalm_facts.fqdn}},{{ansible_host}}"
       #with_items: "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
       delegate_to: localhost
+    - name: copy facts to txt
+      copy:
+        dest: /home/nstadmin/nxui-ansible/nxui-juniper/lldpfacts.txt
+        content: "{{ test.ansible_facts.napalm_lldp_neighbors_detail}}"
 
-    #- name: copy lldp facts
-      #lineinfile:
-        #dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
-        #line: "{{ item }} : {{ test.ansible_facts.napalm_lldp_neighbors_detail[item][0]['remote_chassis_id'] }}"
-      #with_items: 
-        #"{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
-
-
-    #- name: copy lldp facts
-      #lineinfile:
-        #insertafter: EOF
-        #dest: /home/nstadmin/nxui-ansible/nxui-juniper/getfacts.csv
-        #line: "{{ test.ansible_facts.napalm_lldp_neighbors_detail['ge-0/0/19'][0]['parent_interface'] }}\n"
-      #with_items: 
-       #- "{{ test.ansible_facts.napalm_lldp_neighbors_detail.keys() }}"
