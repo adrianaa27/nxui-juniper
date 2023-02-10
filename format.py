@@ -35,8 +35,8 @@ with open('lldpfacts.txt', 'r') as lldp_file:
                 destination_data.write("          remote_system_enable_capab: "+ i['remote_system_enable_capab'][0] +"\n")  
                 destination_data.write("          parent_interface: "+ i['parent_interface'] +"\n")   
 
-config = yaml.load(open('./format.yml'))
-env = Environment(loader = FileSystemLoader('./rewriteJunos.j2'), trim_blocks=True, lstrip_blocks=True)
+config = yaml.safe_load(open('format.yml'))
+env = Environment(loader = FileSystemLoader('rewriteJunos.j2'), trim_blocks=True, lstrip_blocks=True)
 template = env.get_template('junos_details.txt')
    
 
