@@ -31,7 +31,7 @@ with open('lldpfacts.txt', 'r') as lldp_file:
         for i in port_details:
             print(port, ":", i)  
             with open('format.yml','a') as destination_data:
-                destination_data.write("    details: "+ i +"\n")        
+                destination_data.write("    details: "+ port +"\n")        
 
 
 
