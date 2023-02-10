@@ -46,8 +46,10 @@ def generate_hosts():
     env = Environment(loader=FileSystemLoader("./"), trim_blocks=True, lstrip_blocks=True)
     template = env.get_template("rewriteJunos.j2")
     configuration = template.render(my_vars)
-    #with open('inventory\hosts.yml','w') as destination_data:
-        #destination_data.write(configuration)
+    with open('junos_details.txt') as f:
+        f.write(configuration)
+    
+
     print("Process run")
 
 generate_hosts()
