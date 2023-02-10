@@ -1,6 +1,6 @@
 ---
-{% for items in devices %}
-    {% for k, v in port.items() %}
-        
-    {% endfor %}
-{% endfor %}
+{% for dev in device %}
+    dev {{dev.device_name}} {
+        interface {{interface.port}};
+    }
+{%endfor%}

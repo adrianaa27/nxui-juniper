@@ -43,7 +43,7 @@ def generate_hosts():
     
     """
     my_vars = yaml.safe_load(open("format.yml"))
-    env = Environment(loader=FileSystemLoader("./"), trim_blocks=True, lstrip_blocks=True)
+    env = Environment(loader=FileSystemLoader("/home/nstadmin/nxui-ansible/nxui-juniper"), trim_blocks=True, lstrip_blocks=True)
     template = env.get_template("rewriteJunos.j2")
     configuration = template.render(my_vars)
     with open('junos_details.txt') as f:
