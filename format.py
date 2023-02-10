@@ -18,6 +18,8 @@ with open('getfacts.csv', 'r') as csv_data:
                 #destination_data.write("    details: " + line[2] + "\n")
         
 
+
+
 lldp_dl = {}
 with open('lldpfacts.txt', 'r') as lldp_file:
     txt_reader = lldp_file.readlines()
@@ -26,9 +28,10 @@ with open('lldpfacts.txt', 'r') as lldp_file:
         lldp_dl = (eval(line))
 #print(lldp_dl)
 
-for k, v in lldp_dl.items():
-    for i in v:
-        print(k, ":", i)
+
+for port, port_details in lldp_dl.items():
+    for i in port_details:
+        print(port, ":", i)
       
 
 
