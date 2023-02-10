@@ -27,12 +27,9 @@ with open('lldpfacts.txt', 'r') as lldp_file:
     for line in txt_reader:
         lldp_dl = (eval(line))
 #print(lldp_dl)
-
-
-for port, port_details in lldp_dl.items():
-    for i in port_details:
-        print(port, ":", i)
-      
+    for port, port_details in lldp_dl.items():
+        for i in port_details:
+            print(port, ":", i)  
 
 
 
