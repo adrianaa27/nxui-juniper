@@ -24,15 +24,10 @@ with open('lldpfacts.txt', 'r') as lldp_file:
     #print(txt_reader) 
     for line in txt_reader:
         lldp_dl = (eval(line))
-#print(lldp_dl)
     for port, port_details in lldp_dl.items():
         for i in port_details:
             #print(port, ":", i)  
-            #with open('format.yml','a') as destination_data:
-                #destination_data.write("    details: "+ port +"\n")        
-            #for items in i:
-
-            with open('format.yml','a') as destination_data:
+             with open('format.yml','a') as destination_data:
                 destination_data.write("    port: "+ port +"\n")   
                 destination_data.write("    remote_chassis_id: "+ i['remote_chassis_id'] +"\n")
                 destination_data.write("    remote_port: "+ i['remote_port'] +"\n") 
