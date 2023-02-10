@@ -37,9 +37,18 @@ with open('lldpfacts.txt', 'r') as lldp_file:
                 destination_data.write("          parent_interface: "+ i['parent_interface'] +"\n")   
 
 
+def generate_hosts():
+
+    my_vars = yaml.safe_load(open("format.yml"))
+    env = Environment(loader=FileSystemLoader("/home/nstadmin/nxui-ansible/nxui-juniper/"), trim_blocks=True, lstrip_blocks=True)
+    template = env.get_template("rewriteJunos.j2")
+    configuration = template.render(my_vars)
+    with open('inventory\hosts.yml','w') as file:
+        file.write(configuration)
+    print("Process run")
                 
 
-
+generate_hosts()
         
    
 
