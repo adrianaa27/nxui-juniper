@@ -28,7 +28,9 @@ with open('lldpfacts.txt', 'r') as lldp_file:
 
 for k, v in lldp_dl.items():
     for i in v:
-        print(k, ":", i)
+        #print(k, ":", i)
+        for key, values  in i:
+            print(k, ":", values)
 
 
 
