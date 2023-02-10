@@ -32,7 +32,7 @@ with open('lldpfacts.txt', 'r') as lldp_file:
             #print(port, ":", i)  
             #with open('format.yml','a') as destination_data:
                 #destination_data.write("    details: "+ port +"\n")        
-            for items in i:
+            for items, values in i.items():
                 print(items['parent_interface'])
 
 
