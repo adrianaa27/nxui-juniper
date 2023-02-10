@@ -33,7 +33,21 @@ with open('lldpfacts.txt', 'r') as lldp_file:
             #with open('format.yml','a') as destination_data:
                 #destination_data.write("    details: "+ port +"\n")        
             for items in i:
-                print(i['remote_chassis_id'])
+###
+                #with open('format.yml','a') as destination_data:
+                 #   destination_data.write("    port: "+ port +"\n")   
+                  #  destination_data.write("    remote_chassis_id: "+ port +"\n")
+                   # destination_data.write("    remote_port: "+ port +"\n") 
+                    #destination_data.write("    remote_port_description: "+ port +"\n")   
+                    #destination_data.write("    remote_system_name: "+ port +"\n")
+                    #destination_data.write("    remote_system_description: "+ port +"\n")   
+                    #destination_data.write("    remote_system_capab: "+ port +"\n")   
+                    #destination_data.write("    remote_system_enable_capab: "+ port +"\n")  
+                    #destination_data.write("    parent_interface: "+ port +"\n")   
+ ###
+
+
+                    print(i['remote_system_capab'])
                 
 
 
