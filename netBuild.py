@@ -2,8 +2,6 @@ import napalm
 import sys
 import os
 from napalm import get_network_driver
-from napalm import 
-
 
 ios_driver = get_network_driver('junos')
 junos_driver = get_network_driver('ios')
@@ -14,4 +12,8 @@ junos_driver = get_network_driver('ios')
 with junos_driver('10.100.0.8', 'teset', 'H@ppyrout3') as device:
     print(device.get_facts())
     print(device.get_lldp_neighbors_detail())
-    
+
+lldp_data = {}
+device_facts = {}
+
+#for dev, output in device.get_facts().items:
