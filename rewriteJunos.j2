@@ -1,6 +1,8 @@
 ---
 {% for dev in device %}
-    dev {{dev.device_name}} {
-        interface {{interface.port}};
-    }
+    {{''\n' +  dev["device_name"] + ''' + ': {'}} 
+    {% for ports  in port  %}
+
+    {%endfor%}
 {%endfor%}
+
