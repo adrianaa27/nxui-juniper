@@ -33,7 +33,7 @@ with open('lldpfacts.txt', 'r') as lldp_file:
                 destination_data.write("      remote_system_description: '"+ i['remote_system_description'] +"'\n")   
                 destination_data.write("      remote_system_capab: "+ i['remote_system_capab'][0] +"\n")   
                 destination_data.write("      remote_system_enable_capab: "+ i['remote_system_enable_capab'][0] +"\n")  
-                destination_data.write("      parent_interface: "+ i['parent_interface'] +"\n")   
+                destination_data.write("      parent_interface: '"+ i['parent_interface'] +"'\n")   
 
 
 def generate_hosts():
