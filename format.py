@@ -24,10 +24,10 @@ with open('lldpfacts.txt', 'r') as lldp_file:
     for port, port_details in lldp_dl.items():
         for i in port_details:
              #print(port, ":", i)
-             chasssId = (i['remote_chassis_id'].split(':', 0))   
+             chasssId = (i['remote_chassis_id'].split(':'))   
              with open('format.yml','a') as destination_data:
                 destination_data.write("  - port: "+ port +"\n")   
-                destination_data.write("    remote_chassis_id: "+ chasssId[0] +"\n")
+                destination_data.write("    remote_chassis_id: "+ ':'.join(chasssId) +"\n")
                 destination_data.write("    remote_port: "+ i['remote_port'] +"\n") 
                 destination_data.write("    remote_port_description: "+ i['remote_port_description'] +"\n")   
                 destination_data.write("    remote_system_name: "+ i['remote_system_name'] +"\n")
@@ -37,21 +37,21 @@ with open('lldpfacts.txt', 'r') as lldp_file:
                 destination_data.write("    parent_interface: "+ i['parent_interface'] +"\n")   
 
 
-def generate_hosts():
+#def generate_hosts():
     """
     Load In hosts from the destination.csv
     Generate a host file config from template found in the inventory directory
     
     """
-    my_vars = yaml.safe_load(open("format.yml"))
-    env = Environment(loader=FileSystemLoader("/home/nstadmin/nxui-ansible/nxui-juniper"), trim_blocks=True, lstrip_blocks=True)
-    template = env.get_template("rewriteJunos.j2")
-    configuration = template.render(my_vars)
-    with open('junos_details.txt') as f:
-        f.write(configuration)
-    print("Process run")
+    #my_vars = yaml.safe_load(open("format.yml"))
+    #env = Environment(loader=FileSystemLoader("/home/nstadmin/nxui-ansible/nxui-juniper"), trim_blocks=True, lstrip_blocks=True)
+    #template = env.get_template("rewriteJunos.j2")
+    #configuration = template.render(my_vars)
+    #with open('junos_details.txt') as f:
+     #   f.write(configuration)
+    #print("Process run")
 
-generate_hosts()
+#generate_hosts()
 
 
 
