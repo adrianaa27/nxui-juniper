@@ -10,10 +10,11 @@ ios_driver = get_network_driver('ios')
 #devices = [ex4300]
 
 with junos_driver('10.100.0.8', 'test', 'H@ppyrout3') as device:
-    print(device.get_facts())
-    print(device.get_lldp_neighbors_detail())
-
-lldp_data = {}
-device_facts = {}
+    #print(device.get_facts())
+    #print(device.get_lldp_neighbors_detail())
+    lldp_data = {}
+    lldp_data = ((eval(device.get_lldp_neighbors)))
+    device_facts = {}
+    print(lldp_data)
 
 #for dev, output in device.get_facts().items:
