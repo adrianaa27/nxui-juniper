@@ -24,10 +24,10 @@ with open('lldpfacts.txt', 'r') as lldp_file:
     for port, port_details in lldp_dl.items():
         for i in port_details:
              #print(port, ":", i)
-             #print(i['remote_chassis_id'].split(':', 0))   
+             chasssId = (i['remote_chassis_id'].split(':', 0))   
              with open('format.yml','a') as destination_data:
                 destination_data.write("  - port: "+ port +"\n")   
-                destination_data.write("    remote_chassis_id: "+ i['remote_chassis_id'].split(':', 0) +"\n")
+                destination_data.write("    remote_chassis_id: "+ chasssId[0] +"\n")
                 destination_data.write("    remote_port: "+ i['remote_port'] +"\n") 
                 destination_data.write("    remote_port_description: "+ i['remote_port_description'] +"\n")   
                 destination_data.write("    remote_system_name: "+ i['remote_system_name'] +"\n")
