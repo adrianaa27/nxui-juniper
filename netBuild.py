@@ -12,7 +12,7 @@ junos_driver = get_network_driver('junos')
 with junos_driver('10.100.0.8', 'test', 'H@ppyrout3') as device:
     lldp_result = [device.get_lldp_neighbors_detail()]
     facts_result = [device.get_facts()]
-    #print(result)
-    for interface, int_details in lldp_result.items():
-        for i in int_details:
-            print(i + ":" + int_details)
+    print(lldp_result)
+   # for interface, int_details in lldp_result.items():
+    #    for i in int_details:
+     #       print(i + ":" + int_details)
