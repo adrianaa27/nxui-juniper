@@ -18,4 +18,6 @@ with junos_driver('10.100.0.8', 'test', 'H@ppyrout3') as device:
     for items in lldp_result:
         lldp_data = items
         print(lldp_data)
-        
+        for k,v in lldp_data.items():
+            for i in v:
+                print(k + ":" + i)
