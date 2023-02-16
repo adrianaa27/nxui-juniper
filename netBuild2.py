@@ -8,15 +8,15 @@ junos_driver = get_network_driver('junos')
 ios_driver = get_network_driver('ios')
 iosxr_driver = get_network_driver('iosxr')
 
-devices = [['10.100.0.8', 'junos', 'switch']]
+devices = [['10.100.0.8', 'junos'],['10.196.30.78','ios']]
 network_devices = []
 for device in devices:
     if device[1] == "ios":
         network_devices.append(
             ios_driver(
             hostname = device[0],
-            username = "admin",
-            password = "Time4work!"
+            username = "root",
+            password = "H@ppyrout3"
             )
           )
     elif device[1] == "junos":
