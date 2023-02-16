@@ -34,7 +34,7 @@ with junos_driver('10.100.0.8', 'test', 'H@ppyrout3') as device:
     #print(result)
     lldp_data = {}
     facts = {}
-    for items in result
+    for items in result:
         for device, output in items.items():
             facts['ip'] = items['fqdn']
             facts['role'] = items['model']
