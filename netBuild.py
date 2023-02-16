@@ -2,6 +2,9 @@ import napalm
 import sys
 import os
 from napalm import get_network_driver
+from rich import print as rprint
+
+
 
 junos_driver = get_network_driver('junos')
 #ios_driver = get_network_driver('ios')
@@ -120,6 +123,6 @@ with junos_driver('10.100.0.8', 'test', 'H@ppyrout3') as device:
                     ))
         return [discovered_hosts, global_interconnections, lldp_capabilities_dict]
     
-    print(extract_lldp_details(lldp_data))
+    rprint(extract_lldp_details(lldp_data))
 
 
