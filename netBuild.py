@@ -21,7 +21,7 @@ with junos_driver('10.100.0.8', 'test', 'H@ppyrout3') as device:
     facts = {}
 
     for device, fact_list in facts_result.items():
-        if fact_list[0].failed: 
+        if fact_list[0]: 
             facts[device] = {
                 'role': ('model', 'undefined'),
                 'ip': ('hostname', 'n/a'),
