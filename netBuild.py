@@ -33,8 +33,8 @@ with junos_driver('10.100.0.8', 'test', 'H@ppyrout3') as device:
     print(facts_result)
     lldp_data = {}
     facts = {}
-    #for fact, output in facts_result.items():
-        #device_fqdn = output['fqdn']
+    for fact, output in facts_result.items():
+        device_fqdn = facts_result['fqdn']
             #if not device_fqdn:
                 #device_fqdn = output['fqdn']
             #if not device_fqdn:
@@ -46,4 +46,4 @@ with junos_driver('10.100.0.8', 'test', 'H@ppyrout3') as device:
         
         #for port, port_details in lldp_result.items():
             #lldp_data[facts]['ip'] = lldp_result 
-        #print(device_fqdn)
+        print(device_fqdn)
