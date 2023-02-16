@@ -23,7 +23,7 @@ with junos_driver('10.100.0.8', 'test', 'H@ppyrout3') as device:
     for device, fact_output in facts_result.items():
         facts['ip'] = facts_result['fqdn']
         facts['role'] = facts_result['model']
-    print(facts)
+    print(device)
         
 
 
