@@ -21,7 +21,8 @@ with junos_driver('10.100.0.8', 'test', 'H@ppyrout3') as device:
     facts = {}
 
     for device, fact_output in facts_result.items():
-        print(device)
+        facts['ip'] = {facts_result['fqdn']}
+    print(facts)
         
 
 
