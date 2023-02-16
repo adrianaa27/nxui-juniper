@@ -15,5 +15,6 @@ with junos_driver('10.100.0.8', 'test', 'H@ppyrout3') as device:
     #print(lldp_result)
     for port, port_details in lldp_result.items():
         for i in port_details:
-            print(port, ":", i)
+            print(port_details)
+            
   
