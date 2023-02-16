@@ -8,7 +8,7 @@ junos_driver = get_network_driver('junos')
 ios_driver = get_network_driver('ios')
 iosxr_driver = get_network_driver('iosxr')
 
-devices = [['EX4300-SW01', 'junos', 'switch']]
+devices = [['10.100.0.8', 'junos', 'switch']]
 network_devices = []
 for device in devices:
     if device[1] == "ios":
