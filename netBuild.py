@@ -28,20 +28,21 @@ junos_driver = get_network_driver('junos')
 #for device in network_devices:
         #device.open()
 with junos_driver('10.100.0.8', 'test', 'H@ppyrout3') as device:
-    lldp_result = device.get_lldp_neighbors_detail()
-    facts_result = device.get_facts()
-    #print(lldp_result)
+    #lldp_result = device.get_lldp_neighbors_detail()
+    #facts_result = device.get_facts()
+    result = [device.get_facts, device.get_lldp_neighbors_detail]
+    print(result)
 
-    print(facts_result)
-    lldp_data = {}
-    facts = {}
-    for device, fact_output in facts_result.items():
-        facts['ip'] = facts_result['fqdn']
-        facts['role'] = facts_result['model']
+    #print(facts_result)
+    #lldp_data = {}
+    #facts = {}
+    #for device, fact_output in facts_result.items():
+        #facts['ip'] = facts_result['fqdn']
+        #facts['role'] = facts_result['model']
     #print(facts)
-        for port, port_details in lldp_result.items():
-            lldp_data[facts]['ip'] = lldp_result 
-            print (lldp_data)
+        #for port, port_details in lldp_result.items():
+            #lldp_data[facts]['ip'] = lldp_result 
+            #print (lldp_data)
         
 
 
