@@ -1,62 +1,50 @@
 import napalm
 import sys
 import os
+import json
 from napalm import get_network_driver
 from rich import print as rprint
 
+#getting device info
+''''
 junos_driver = get_network_driver('junos')
-ios_driver = get_network_driver('ios')
-iosxr_driver = get_network_driver('iosxr')
-
-devices = [['10.100.0.8', 'junos'],['10.196.30.78','ios']]
+devices = [['10.100.0.8','junos']]
 network_devices = []
 for device in devices:
-    if device[1] == "ios":
+    if device[1] == "junos":
         network_devices.append(
-            ios_driver(
-            hostname = device[0],
-            username = "root",
-            password = "H@ppyrout3"
-            )
-          )
-    elif device[1] == "junos":
-        network_devices.append(
-            junos_driver(
-               hostname = device[0],
-                username = "test",
-                password = "H@ppyrout3"
-            )
-          )
-    elif device[1] == "junos":
-        network_devices.append(
-            iosxr_driver(
-               hostname = device[0],
-                username = "admin",
-                password = "Time4work!"
-            )
-          )
+                        junos_driver(
+                        hostname = device[0],
+                        username = "test",
+                        password = "H@ppyrout3"
+                        )
+                            )
+print(network_devices)                            
 for device in network_devices:
-    device.open()
-#with junos_driver('10.100.0.8', 'test', 'H@ppyrout3') as device:
-
+    device.open() 
+ '''
+    #with junos_driver(device) as getdevice:
+junos_driver = get_network_driver('junos')
+with junos_driver('10.100.0.8', 'test', 'H@ppyrout3') as device:
     lldp_result = device.get_lldp_neighbors_detail()
     facts_result = device.get_facts()
     #print(facts_result)
     lldp_data = {}
     facts = {}
     for fact, output in facts_result.items():
-        #device_fqdn = facts_result['fqdn']
-        #if not device_fqdn:
+        device_fqdn = facts_result['fqdn']
+        if not device_fqdn:
             device_fqdn = facts_result['hostname']
-        #if not device_fqdn:
-            #facts[device_fqdn] = facts_result
-            facts['ip'] = facts_result['fqdn']
-            facts['role'] = facts_result['model']
-            #lldp_data[device_fqdn] = output['interface_list']
-    #print(facts)   
+        if not device_fqdn:
+            device_fqdn = device
+        facts[device_fqdn] = facts_result
+        facts['role'] = facts_result['model']
+        facts['ip'] = facts_result['fqdn']
+        lldp_data[device_fqdn] = facts_result['interface_list']
+    rprint(facts)   
     for port, port_details in lldp_result.items():
         lldp_data[device_fqdn] = lldp_result
-    #print(lldp_data)
+    #rprint(lldp_data)
         
     interface_full_name_map = {
         'Eth': 'Ethernet',
@@ -230,9 +218,6 @@ def generate_topology_json(*args):
     return topology_dict
 
 #---#
-
-
-import json
 
 OUTPUT_TOPOLOGY_FILENAME = 'topology.js'
 TOPOLOGY_FILE_HEAD = "\n\nvar topologyData = "
