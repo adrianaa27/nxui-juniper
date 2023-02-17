@@ -4,6 +4,8 @@ var topologyData = {
     "links": [
         {
             "id": 0,
+            "is_dead": "no",
+            "is_new": "no",
             "source": 3,
             "srcDevice": "EX4300-SW01",
             "srcIfName": "ge-0/0/20",
@@ -13,6 +15,8 @@ var topologyData = {
         },
         {
             "id": 1,
+            "is_dead": "no",
+            "is_new": "no",
             "source": 3,
             "srcDevice": "EX4300-SW01",
             "srcIfName": "ge-0/0/19",
@@ -22,6 +26,8 @@ var topologyData = {
         },
         {
             "id": 2,
+            "is_dead": "no",
+            "is_new": "no",
             "source": 3,
             "srcDevice": "EX4300-SW01",
             "srcIfName": "ge-0/0/23",
@@ -34,6 +40,8 @@ var topologyData = {
         {
             "icon": "switch",
             "id": 0,
+            "is_dead": "no",
+            "is_new": "no",
             "layerSortPreference": 1,
             "model": "n/a",
             "name": "coreTX888train01.northstar-tek.com",
@@ -43,6 +51,8 @@ var topologyData = {
         {
             "icon": "switch",
             "id": 1,
+            "is_dead": "no",
+            "is_new": "no",
             "layerSortPreference": 1,
             "model": "n/a",
             "name": "SRX340-01",
@@ -52,6 +62,8 @@ var topologyData = {
         {
             "icon": "switch",
             "id": 2,
+            "is_dead": "no",
+            "is_new": "no",
             "layerSortPreference": 1,
             "model": "n/a",
             "name": "EX2200-SW01",
@@ -61,6 +73,8 @@ var topologyData = {
         {
             "icon": "unknown",
             "id": 3,
+            "is_dead": "no",
+            "is_new": "no",
             "layerSortPreference": 1,
             "model": "EX4300-24P",
             "name": "EX4300-SW01",

@@ -1,6 +1,4 @@
-
-
-var topologyData = {
+{
     "links": [
         {
             "id": 0,
@@ -68,4 +66,4 @@ var topologyData = {
             "serial_number": "PF3713480178"
         }
     ]
-};
+}
