@@ -5,8 +5,8 @@ var topologyData = {
         {
             "id": 0,
             "is_dead": "no",
-            "is_new": "yes",
-            "source": 1,
+            "is_new": "no",
+            "source": 2,
             "srcDevice": "EX4300-SW01",
             "srcIfName": "ge-0/0/20",
             "target": 0,
@@ -16,19 +16,19 @@ var topologyData = {
         {
             "id": 1,
             "is_dead": "no",
-            "is_new": "yes",
-            "source": 1,
+            "is_new": "no",
+            "source": 2,
             "srcDevice": "EX4300-SW01",
             "srcIfName": "ge-0/0/19",
-            "target": 2,
+            "target": 1,
             "tgtDevice": "coreTX888train01.northstar-tek.com",
             "tgtIfName": "Eth109/1/26"
         },
         {
             "id": 2,
             "is_dead": "no",
-            "is_new": "yes",
-            "source": 1,
+            "is_new": "no",
+            "source": 2,
             "srcDevice": "EX4300-SW01",
             "srcIfName": "ge-0/0/23",
             "target": 3,
@@ -38,11 +38,11 @@ var topologyData = {
         {
             "id": 3,
             "is_dead": "no",
-            "is_new": "yes",
+            "is_new": "no",
             "source": 3,
             "srcDevice": "EX2200-SW01",
             "srcIfName": "ge-0/0/23.0",
-            "target": 1,
+            "target": 2,
             "tgtDevice": "EX4300-SW01",
             "tgtIfName": "546"
         }
@@ -52,7 +52,7 @@ var topologyData = {
             "icon": "switch",
             "id": 0,
             "is_dead": "no",
-            "is_new": "yes",
+            "is_new": "no",
             "layerSortPreference": 1,
             "model": "n/a",
             "name": "SRX340-01",
@@ -65,21 +65,21 @@ var topologyData = {
             "is_dead": "no",
             "is_new": "no",
             "layerSortPreference": 1,
-            "model": "EX4300-24P",
-            "name": "EX4300-SW01",
-            "primaryIP": "10.100.0.8",
-            "serial_number": "PF3713480178"
+            "model": "n/a",
+            "name": "coreTX888train01.northstar-tek.com",
+            "primaryIP": "n/a",
+            "serial_number": "n/a"
         },
         {
             "icon": "switch",
             "id": 2,
             "is_dead": "no",
-            "is_new": "yes",
+            "is_new": "no",
             "layerSortPreference": 1,
-            "model": "n/a",
-            "name": "coreTX888train01.northstar-tek.com",
-            "primaryIP": "n/a",
-            "serial_number": "n/a"
+            "model": "EX4300-24P",
+            "name": "EX4300-SW01",
+            "primaryIP": "10.100.0.8",
+            "serial_number": "PF3713480178"
         },
         {
             "icon": "switch",
