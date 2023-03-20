@@ -5,19 +5,19 @@ var topologyData = {
         {
             "id": 0,
             "is_dead": "no",
-            "is_new": "no",
-            "source": 3,
+            "is_new": "yes",
+            "source": 1,
             "srcDevice": "EX4300-SW01",
             "srcIfName": "ge-0/0/20",
-            "target": 1,
+            "target": 0,
             "tgtDevice": "SRX340-01",
             "tgtIfName": "518"
         },
         {
             "id": 1,
             "is_dead": "no",
-            "is_new": "no",
-            "source": 3,
+            "is_new": "yes",
+            "source": 1,
             "srcDevice": "EX4300-SW01",
             "srcIfName": "ge-0/0/19",
             "target": 2,
@@ -27,11 +27,11 @@ var topologyData = {
         {
             "id": 2,
             "is_dead": "no",
-            "is_new": "no",
-            "source": 3,
+            "is_new": "yes",
+            "source": 1,
             "srcDevice": "EX4300-SW01",
             "srcIfName": "ge-0/0/23",
-            "target": 0,
+            "target": 3,
             "tgtDevice": "EX2200-SW01",
             "tgtIfName": "534"
         },
@@ -39,10 +39,10 @@ var topologyData = {
             "id": 3,
             "is_dead": "no",
             "is_new": "yes",
-            "source": 0,
+            "source": 3,
             "srcDevice": "EX2200-SW01",
             "srcIfName": "ge-0/0/23.0",
-            "target": 3,
+            "target": 1,
             "tgtDevice": "EX4300-SW01",
             "tgtIfName": "546"
         }
@@ -52,18 +52,7 @@ var topologyData = {
             "icon": "switch",
             "id": 0,
             "is_dead": "no",
-            "is_new": "no",
-            "layerSortPreference": 1,
-            "model": "EX2200-24T-4G",
-            "name": "EX2200-SW01",
-            "primaryIP": "10.100.0.9",
-            "serial_number": "CW0211443029"
-        },
-        {
-            "icon": "switch",
-            "id": 1,
-            "is_dead": "no",
-            "is_new": "no",
+            "is_new": "yes",
             "layerSortPreference": 1,
             "model": "n/a",
             "name": "SRX340-01",
@@ -72,9 +61,20 @@ var topologyData = {
         },
         {
             "icon": "switch",
-            "id": 2,
+            "id": 1,
             "is_dead": "no",
             "is_new": "no",
+            "layerSortPreference": 1,
+            "model": "EX4300-24P",
+            "name": "EX4300-SW01",
+            "primaryIP": "10.100.0.8",
+            "serial_number": "PF3713480178"
+        },
+        {
+            "icon": "switch",
+            "id": 2,
+            "is_dead": "no",
+            "is_new": "yes",
             "layerSortPreference": 1,
             "model": "n/a",
             "name": "coreTX888train01.northstar-tek.com",
@@ -87,10 +87,10 @@ var topologyData = {
             "is_dead": "no",
             "is_new": "no",
             "layerSortPreference": 1,
-            "model": "EX4300-24P",
-            "name": "EX4300-SW01",
-            "primaryIP": "10.100.0.8",
-            "serial_number": "PF3713480178"
+            "model": "EX2200-24T-4G",
+            "name": "EX2200-SW01",
+            "primaryIP": "10.100.0.9",
+            "serial_number": "CW0211443029"
         }
     ]
 };
