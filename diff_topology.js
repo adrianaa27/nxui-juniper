@@ -20,7 +20,7 @@ var topologyData = {
             "source": 3,
             "srcDevice": "EX4300-SW01",
             "srcIfName": "ge-0/0/19",
-            "target": 0,
+            "target": 2,
             "tgtDevice": "coreTX888train01.northstar-tek.com",
             "tgtIfName": "Eth109/1/26"
         },
@@ -31,9 +31,20 @@ var topologyData = {
             "source": 3,
             "srcDevice": "EX4300-SW01",
             "srcIfName": "ge-0/0/23",
-            "target": 2,
+            "target": 0,
             "tgtDevice": "EX2200-SW01",
             "tgtIfName": "534"
+        },
+        {
+            "id": 3,
+            "is_dead": "no",
+            "is_new": "yes",
+            "source": 0,
+            "srcDevice": "EX2200-SW01",
+            "srcIfName": "ge-0/0/23.0",
+            "target": 3,
+            "tgtDevice": "EX4300-SW01",
+            "tgtIfName": "546"
         }
     ],
     "nodes": [
@@ -43,10 +54,10 @@ var topologyData = {
             "is_dead": "no",
             "is_new": "no",
             "layerSortPreference": 1,
-            "model": "n/a",
-            "name": "coreTX888train01.northstar-tek.com",
-            "primaryIP": "n/a",
-            "serial_number": "n/a"
+            "model": "EX2200-24T-4G",
+            "name": "EX2200-SW01",
+            "primaryIP": "10.100.0.9",
+            "serial_number": "CW0211443029"
         },
         {
             "icon": "switch",
@@ -66,19 +77,19 @@ var topologyData = {
             "is_new": "no",
             "layerSortPreference": 1,
             "model": "n/a",
-            "name": "EX2200-SW01",
+            "name": "coreTX888train01.northstar-tek.com",
             "primaryIP": "n/a",
             "serial_number": "n/a"
         },
         {
-            "icon": "unknown",
+            "icon": "switch",
             "id": 3,
             "is_dead": "no",
             "is_new": "no",
             "layerSortPreference": 1,
             "model": "EX4300-24P",
             "name": "EX4300-SW01",
-            "primaryIP": "n/a",
+            "primaryIP": "10.100.0.8",
             "serial_number": "PF3713480178"
         }
     ]

@@ -1,0 +1,13 @@
+---
+juniper:
+    username: test
+    password: H@ppyrout3
+    connection_options:
+        napalm:
+            extras:
+                optional_args:
+                    secret: H@ppyrout3
+
+  
+
+

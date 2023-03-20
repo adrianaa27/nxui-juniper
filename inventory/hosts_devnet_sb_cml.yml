@@ -1,0 +1,13 @@
+---
+
+EX4300-SW01:
+    hostname: 10.100.0.8
+    platform: junos
+    groups:
+        - juniper
+
+EX2200-SW01:
+    hostname: 10.100.0.9
+    platform: junos
+    groups:
+        - juniper

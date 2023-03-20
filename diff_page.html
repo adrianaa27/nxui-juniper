@@ -6,15 +6,16 @@
         <link rel="stylesheet" href="next_sources/css/next.css">
         <link rel="stylesheet" href="styles_main_page.css">
         <script src="next_sources/js/next.js"></script>
-        <script src="topology.js"></script>
+        <script src="diff_topology.js"></script>
         <script src="next_app.js"></script>
     </head>
     <body>
-        <a href="diff_page.html"><button>Display Diff</button></a>
-        <a href="main.html"><button>Refresh Autolayout</button></a>
+        <p><font size="3">New nodes and links marked green. Deleted links are red dotted lines. Deleted node icon speaks for itself.</font></p>
+        <p>
+        <a href="main.html"><button>Display Current Topology</button></a>
+        <a href="diff_page.html"><button>Refresh Autolayout</button></a>
         <button onclick='horizontal()'>Horizontal Layout</button>
         <button onclick="vertical()">Vertical Layout</button>
+        </p>
     </body>
 </html>
-
-
